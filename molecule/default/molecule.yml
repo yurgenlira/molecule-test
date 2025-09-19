@@ -19,5 +19,7 @@ platforms:
     ansible_remote_tmp: /tmp
 provisioner:
   name: ansible
+  options:
+    v: true
 verifier:
   name: ansible
