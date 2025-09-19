@@ -1,5 +1,5 @@
 ---
-name: CI
+name: Molecule CI
 'on':
   pull_request:
   push:
@@ -14,8 +14,8 @@ jobs:
     strategy:
       matrix:
         distro:
-          - centos8
-          - debian10
+          - rockylinux9
+          - debian12
 
     steps:
       - name: Check out the codebase.
@@ -27,7 +27,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies.
-        run: pip3 install ansible molecule[docker] docker yamllint ansible-lint
+        run: pip3 install ansible molecule molecule-plugins[docker] yamllint ansible-lint
 
       - name: Run Molecule tests.
         run: molecule test
@@ -35,3 +35,4 @@ jobs:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
           MOLECULE_DISTRO: ${{ matrix.distro }}
+        working-directory: molecule
