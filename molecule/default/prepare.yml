@@ -4,5 +4,8 @@
   gather_facts: false
   become: true
   tasks:
+    - debug:
+        msg: "Preparing instance by installing python3"
+
     - name: Update apt cache and install python3
       raw: apt-get update && apt-get install -y python3
