@@ -22,8 +22,8 @@
 
   tasks:
     - name: Test.
-      debug:
-        name: "test"
+      ansible.builtin.debug:
+        msg: "test"
 
     # - name: Ensure Apache is installed.
     #   package:
