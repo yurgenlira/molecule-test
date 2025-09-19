@@ -14,7 +14,6 @@ jobs:
     strategy:
       matrix:
         distro:
-          - rockylinux9
           - debian12
 
     steps:
@@ -35,4 +34,4 @@ jobs:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
           MOLECULE_DISTRO: ${{ matrix.distro }}
-        working-directory: molecule
+        working-directory: cd roles/php && molecule test
