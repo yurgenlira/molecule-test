@@ -21,24 +21,28 @@
       when: ansible_os_family == 'RedHat'
 
   tasks:
-    - name: Ensure Apache is installed.
-      package:
-        name: "{{ apache_package }}"
-        state: present
+    - name: Test.
+      debug:
+        name: "test"
 
-    - name: Copy a web page.
-      copy:
-        content: |
-          <html>
-          <head><title>Hello world!</title></head>
-          <body>Hello world!</body>
-          </html>
-        dest: "/var/www/html/index.html"
-        mode: '0644'
-      notify: restart apache
+    # - name: Ensure Apache is installed.
+    #   package:
+    #     name: "{{ apache_package }}"
+    #     state: present
 
-    - name: Ensure Apache is running and starts at boot.
-      service:
-        name: "{{ apache_service }}"
-        state: started
-        enabled: true
+    # - name: Copy a web page.
+    #   copy:
+    #     content: |
+    #       <html>
+    #       <head><title>Hello world!</title></head>
+    #       <body>Hello world!</body>
+    #       </html>
+    #     dest: "/var/www/html/index.html"
+    #     mode: '0644'
+    #   notify: restart apache
+
+    # - name: Ensure Apache is running and starts at boot.
+    #   service:
+    #     name: "{{ apache_service }}"
+    #     state: started
+    #     enabled: true
