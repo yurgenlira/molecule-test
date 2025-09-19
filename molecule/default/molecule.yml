@@ -10,17 +10,18 @@ lint: |
 platforms:
   - name: instance
     # image: geerlingguy/docker-${MOLECULE_DISTRO:-centos8}-ansible:latest
-    image: geerlingguy/docker-ubuntu2404-ansible
-    command: /lib/systemd/systemd
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged: true
+    # image: geerlingguy/docker-ubuntu2404-ansible
+    image: ubuntu:24.04
+    # command: /lib/systemd/systemd
+    # volumes:
+    #   - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    # privileged: true
     pre_build_image: true
-    ansible_remote_tmp: /tmp
-    ansible_user: root
+    # ansible_remote_tmp: /tmp
+    # ansible_user: root
 provisioner:
   name: ansible
-  options:
-    v: true
+  # options:
+  #   v: true
 verifier:
   name: ansible
