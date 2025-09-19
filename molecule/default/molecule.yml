@@ -10,7 +10,7 @@ lint: |
 platforms:
   - name: instance
     # image: geerlingguy/docker-${MOLECULE_DISTRO:-centos8}-ansible:latest
-    image: ubuntu:24.04
+    image: geerlingguy/docker-ubuntu2404-ansible
     command: /lib/systemd/systemd
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
