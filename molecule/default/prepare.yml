@@ -9,3 +9,4 @@
 
     - name: Update apt cache and install python3
       raw: apt-get update && apt-get install -y sudo python3
+      become: true
