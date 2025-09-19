@@ -11,9 +11,9 @@ platforms:
   - name: instance
     # image: geerlingguy/docker-${MOLECULE_DISTRO:-centos8}-ansible:latest
     image: ubuntu:24.04
-    command: ""
-    # volumes:
-    #   - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    command: /lib/systemd/systemd
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
     pre_build_image: true
     ansible_remote_tmp: /tmp
